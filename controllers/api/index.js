@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const usePost = require('./post-route.js');
 const useUser = require('./user-route.js');
-const useHome = require('./home-route.js');
+const useHome = require('../home-route.js');
 const useApi = require('./api');
 
 router.use('/post', usePost);
