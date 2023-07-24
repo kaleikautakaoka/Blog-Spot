@@ -1,0 +1,21 @@
+[
+    {
+        "title": "My first post!",
+        "post_content": "This is my first post! I'm so excited!",
+        "user_id": 1
+
+    },
+    {
+        "title": "Cats are crazy!",
+        "post_content": "Cats are crazy. They have so much personality!",
+        "user_id": 2
+
+    },
+    {
+        "title": "Wheres your head at?",
+        "post_content": "Can anyone guess what famous band this song is from?",
+        "user_id": 3
+
+    }
+
+]
