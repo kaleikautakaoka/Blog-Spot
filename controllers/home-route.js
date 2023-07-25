@@ -1,8 +1,8 @@
 //get route to join post and user tables
 const router = require('express').Router();
-const { Post, User, View } = require('../models');
+const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
-const sequelize = require('../config/connection');
+
 
 //get route to join post and user tables
 router.get('/', async (req, res) => {

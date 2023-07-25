@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Spot</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/jass.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Blog Spot</h1>
+        </div>
+        <div class="nav">
+            <!--Conditional Rendering for login and logout-->
+            {{#if user}}
+                <a href="/logout">Logout</a>
+            {{else}}
+                <a href="/login">Login</a>
+            {{/if}}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            {{{body}}}
+        </div>
+        <!--script for users who are logged in point to auth.js--->
+        {{#if logged_in}}
+            <script src="/public/js/script.js"></script>
+        {{/if}}
+        <div class="footer">
+            <p>&copy; 2023 - Blog Spot</p>
+        </div>
+    </div>
+</body>
+</html>

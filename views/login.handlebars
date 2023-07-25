@@ -1,0 +1,23 @@
+<!--Create a log in form compatible with handle bars-->
+<div class="row">
+    <div class="col-sm-8">
+        <h3>Login!</h3>
+
+        <form class="form login-form" action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="btn btn-default" type="submit">Login</button>
+
+            <form class="signup-form" action="/signup" method="GET">
+                <button class="btn btn-default" type="submit">Sign Up</button>
+            </form>
+    </div>
+</div>
+
+<script src="/public/login.js"></script>
