@@ -1,15 +1,15 @@
 <!-- Loop over each post -->
-{{#each posts as |post|}}
+{{#each posts as |post_content|}}
     <!-- Display the post -->
     <h1>{{title}}</h1>
     <p>{{body}}</p>
-    <p>By {{author}}</p>
+    <p>By {{user}}</p>
     <p>Created on {{date}}</p>
     <hr>
 
-    <!-- Display the comments -->
-    {{#each comments as |comment|}}
-        <p>{{comment}}</p>
+    <!-- Display the post_content -->
+    {{#each post.id as |post.post_content|}}
+        <p>{{post_content}}</p>
     {{/each}}
 
     <!-- Display the comment form -->
