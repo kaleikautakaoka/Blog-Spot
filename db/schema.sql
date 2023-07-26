@@ -1,4 +1,4 @@
-DROP DATABASE IF EXSISTS blogspot_db;
+DROP DATABASE IF EXISTS blogspot_db;
 
 -- Path: db\schema.sql
 
