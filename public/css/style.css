@@ -1,5 +1,5 @@
 body {
-    background-color: #dfceb8;
+    background-color: #e0d6c9;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -21,6 +21,8 @@ btn {
 
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,8 +52,9 @@ nav {
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
+    color: #e0d6c9;
     text-align: center;
+    background-color: rgb(70, 53, 53);
 }
 
 
