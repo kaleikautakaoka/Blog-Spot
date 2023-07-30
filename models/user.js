@@ -24,12 +24,11 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
         },
         // define an email column
         email: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             unique: true,
             validate: {
                 isEmail: true
@@ -41,7 +40,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [8]
+                len: [6]
             }
         }
     },
@@ -54,12 +53,6 @@ User.init(
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             },
-            // set up beforeUpdate lifecycle "hook" functionality
-            async beforeUpdate(updatedUserData) {
-                // add await before bcrypt
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
-            }
         },
         // pass in our imported sequelize connection (the direct connection to our database)
         sequelize,
@@ -77,4 +70,4 @@ User.init(
 
 module.exports = User;
 
-        // add model option
+
