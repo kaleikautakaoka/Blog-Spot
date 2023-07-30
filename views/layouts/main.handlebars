@@ -14,7 +14,7 @@
         </div>
         <div class="nav">
             <!--Conditional Rendering for login and logout-->
-            {{#if user}}
+            {{#if logged_in}}
                 <a href="/logout">Logout</a>
             {{else}}
                 <a href="/login">Login</a>
@@ -31,10 +31,10 @@
         <!--script for users who are logged in point to auth.js--->
         {{#if logged_in}}
             <script src="/public/js/script.js"></script>
-        {{/if}}
         <div class="footer">
             <p>&copy; 2023 - Blog Spot</p>
         </div>
     </div>
+        {{/if}}
 </body>
 </html>
