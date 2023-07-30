@@ -40,6 +40,11 @@ p {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+    color: #212529;
+}
+
 nav {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
