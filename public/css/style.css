@@ -1,5 +1,5 @@
 body {
-    background-color: #e0caac;
+    background-color: #dfceb8;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -14,7 +14,13 @@ btn {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
+    border: 2px solid #212529;
+    border-radius: 5px;
     text-align: left;
+}
+
+ul {
+    list-style-type: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    text-align: left;
+    text-align: center;
 }
 
 p {
