@@ -14,7 +14,7 @@ const loginForm = async (event) => {
         });
     
         if (response.ok) {
-        window.location.replace("/dashboard");
+        window.location.replace("/home");
         } else {
         alert("Failed to log in.");
         }
@@ -26,21 +26,21 @@ const loginForm = async (event) => {
     const signupForm = async (event) => {
         event.preventDefault();
         
-        const name = document.querySelector("#name-signup").value.trim();
+        const username = document.querySelector('#username-signup').value.trim();
         const email = document.querySelector("#email-signup").value.trim();
         const password = document.querySelector("#password-signup").value.trim();
         // if statement to check if all fields are filled out
-        if (name && email && password) {
+        if (username && email && password) {
             const response = await fetch("/api/users", {
             method: "POST",
-            body: JSON.stringify({ name, email, password }),
+            body: JSON.stringify({ username, email, password }),
             headers: { "Content-Type": "application/json" },
             });
         // if statement to check if response is ok
             if (response.ok) {
-            window.location.replace("/dashboard");
+            window.location.replace("/");
             } else {
-            alert("Failed to sign up.");
+            alert("Failed");
             }
         }
         };

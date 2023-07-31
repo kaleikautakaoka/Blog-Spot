@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
 
 //router for logging out
 router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.logout) {
         req.session.destroy(() => {
             res.status(204).end();
         }
