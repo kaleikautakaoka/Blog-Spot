@@ -33,16 +33,12 @@ router.post('/', withAuth, async (req, res) => {
     } catch (err) {
         res.status(400).json(err);
     }
-}
-);
+});
 ```
-
----
-
 ## Deployment Link
 ---
-- [Blog-Spot](https://blogspot123-a0dddad8d899.herokuapp.com/)
----
+[Blog-Spot](https://blogspot123-a0dddad8d899.herokuapp.com/)
+
 
 ## Table of contents
 ---
@@ -79,9 +75,9 @@ npm run watch
 
 5. Test routes via insomnia
 ```
-- [Insomnia](https://insomnia.rest/download)
-```
-http://localhost:3001
+Insomnia: https://insomnia.rest/download
+
+PORT: http://localhost:3001
 ```
 ## Sources
 ---
