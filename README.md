@@ -93,7 +93,8 @@ PORT: http://localhost:3001
 ## Credits
 ---
 DU Bootcamp Cirruculm
-Tutor: Andres Long
+Tutor: Andres Long,
+TA: Rob Johnson
 
 ## License
 ---
