@@ -1,4 +1,39 @@
-<!-- Loop over each post -->
+
+// Danshboard handlebars to display the dashboard page on home instead
+
+{{#if posts.length}}
+
+<section>
+    <h1>Dashboard</h1>
+    <p>Logged in as {{user.username}}</p>
+    <p><a href="/logout">Logout</a></p>
+    <hr>
+    <h2>Posts</h2>
+    {{#each posts as |post|}}
+    <h3>{{post.title}}</h3>
+    <p>{{post.content}}</p>
+    <p>By {{post.user.username}}</p>
+    <p>Created on {{post.date_created}}</p>
+    <hr>
+    {{/each}}
+    <hr>
+    <h2>Comments</h2>
+    {{#each comments as |comment|}}
+    <p>{{content.body}}</p>
+    <p>By {{user.username}}</p>
+    <p>Created on {{comment.date_created}}</p>
+    <hr>
+</section>
+
+    {{/else}}
+    <section>
+    <p>No posts yet</p>
+    </section>
+    {{/if}}
+<button type="submit"><a href="/homepage"></a></button>
+
+
+{{!-- <!-- Loop over each post -->
 {{#each posts as |post_content|}}
     <!-- Display the post -->
     <h1>{{title}}</h1>
@@ -13,7 +48,7 @@
     {{/each}} --}}
 
     <!-- Display the comment form -->
-    <form action="/comment" method="POST">
+    {{!-- <form action="/comment" method="POST">
         <input type="text" name="comment">
         <input type="hidden" name="post_id" value="{{id}}">
         <input type="submit" value="Comment">
@@ -33,9 +68,9 @@
         <input type="submit" value="Delete">
     </form>
 
-    <hr>
+    <hr> --}}
 
     
-{{/each}}
+{{!-- {{/each}} --}} --
 
 ```

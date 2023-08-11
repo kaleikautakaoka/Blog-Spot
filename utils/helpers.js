@@ -5,12 +5,9 @@
 
 
 module.exports = {
-    format_time: (date) => {
-        return date.toLocaleTimeString();
-    },
-    format_date: (date) => {
-        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
-          new Date(date).getFullYear() + 5
-        }`;
-      },
-    };    
+    date_created: (date_created) => {
+       return `${new Date(date_created).getMonth() + 1}/${new Date(date_created).getDate()}/${new Date(date_created).getFullYear()}`;
+
+    }
+};
+

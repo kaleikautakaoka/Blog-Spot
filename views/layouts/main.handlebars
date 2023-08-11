@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Spot</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -12,10 +13,11 @@
         <div class="header">
             <h1>Blog Spot</h1>
         </div>
+         </div>
         <div class="nav">
             <!--Conditional Rendering for login and logout-->
             {{#if logged_in}}
-                <a href="#" id="logout">Logout</a>
+                <a href="../dashboard.handlebars" id="logout">Logout</a>
             {{else}}
                 <a href="/login">Login</a>
             {{/if}}
@@ -25,14 +27,13 @@
         </div>
         <div class="content">
             {{{body}}}
-        </div>
-        <!--script for users who are logged in point to auth.js--->
-        {{#if logged_in}}
-            <script src="./logout.js"></script>
-        {{/if}}
         <div class="footer">
             <p>&copy; 2023 - Blog Spot</p>
         </div>
     </div>
+        <!--script for users who are logged in point to auth.js--->
+        {{#if logged_in}}
+            <script src="./logout.js"></script>
+        {{/if}}
 </body>
 </html>

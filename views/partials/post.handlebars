@@ -1,0 +1,29 @@
+// post id and title
+
+<article class="post">
+    <h3>
+        {{title}}
+    </h3>
+    <div>
+        <p>
+            {{content.length}}
+        </p>
+    </div>
+    <div>
+        <p>
+            {{user.username}}
+        </p>
+    </div>
+    <div>
+        <p>
+            {{date_created}}
+        </p>
+    </div>
+    <div>
+        <p>
+            {{#if logged_in}}
+            <a href="/editPost/{{id}}">Edit</a>
+            <a href="/deletePost/{{id}}">Delete</a>
+            {{/if}}
+        </p>
+    </div>

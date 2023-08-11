@@ -14,8 +14,8 @@ View.init(
             autoIncrement: true
 
         },
-        post_id: {
-            type: DataTypes.INTEGER,
+        content: {
+            type: DataTypes.STRING,
             allowNull: false,
             references: {
                 model: 'post',
@@ -30,7 +30,14 @@ View.init(
                 key: 'id'
             }
 
-        }
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'post',
+                key: 'id'
+            }
     },
     {
         sequelize,
@@ -38,6 +45,7 @@ View.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'view'
+    }
     }
 );
 
