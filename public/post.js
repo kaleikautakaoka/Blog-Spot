@@ -7,7 +7,6 @@ async function editFormHandler(event) {
 
     const title = document.querySelector('input[username="post-title"]').value;
     const content = document.querySelector('textarea[username="post-text"]').value;
-    const user_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
     
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
@@ -29,7 +28,5 @@ async function editFormHandler(event) {
 
     }
 }
-
-<script src="/js/edit-post.js"></script>
 
 document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
