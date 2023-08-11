@@ -4,14 +4,11 @@ const { User } = require('../../models');
 //router for posting for new user
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create({
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.password,
-        });
+        const userData = await User.create(req.body);
 
         req.session.save(() => {
             
+            req.session.logged_in = userData.id;
             req.session.logged_in = true;
 
             res.status(200).json(userData);
@@ -25,7 +22,7 @@ router.post('/', async (req, res) => {
 
 //router for logging in
 router.post('/login', async (req, res) => {
-    // try {
+    try {
         const userData = await User.findOne({ where: { email: req.body.email } });
 
         if (!userData) {
@@ -41,16 +38,15 @@ router.post('/login', async (req, res) => {
         }
 
         req.session.save(() => {
-
+            req.session.user_id = userData.id;
             req.session.logged_in = true;
-            res.status(200).json({ user: userData, message: 'You are now logged in!' });
+            res.json({ user: userData, message: 'You are now logged in!' });
         }
         );
-    // } catch (err) {
-    //     res.status(400).json(err);
-    // }
-}
-);
+    } catch (err) {
+        res.status(400).json(err);
+    }}
+    );
 
 //router for logging out
 router.post('/logout', (req, res) => {
@@ -60,7 +56,7 @@ router.post('/logout', (req, res) => {
         }
         );
     } else {
-        res.status(500).end();
+        res.status(404).end();
     }
 }
 );
