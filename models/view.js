@@ -38,6 +38,7 @@ View.init(
                 model: 'post',
                 key: 'id'
             }
+        }
     },
     {
         sequelize,
@@ -45,7 +46,6 @@ View.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'view'
-    }
     }
 );
 
