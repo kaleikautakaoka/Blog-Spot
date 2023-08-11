@@ -24,7 +24,6 @@ User.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
         },
         // define an email column
         email: {
@@ -32,7 +31,7 @@ User.init(
             allowNull: false,
             unique: true,
             validate: {
-                len: [6]
+                isEmail: true
 
             }
         },
