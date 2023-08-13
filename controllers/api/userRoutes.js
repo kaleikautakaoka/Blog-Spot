@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, View } = require('../../models');
 
 
 
@@ -44,6 +44,7 @@ router.get('/:id', (req, res) => {
     });
 
     router.post('/', (req, res) => { 
+        console.log(req.body);
         User.create({
             username: req.body.username,
             email: req.body.email,
@@ -53,7 +54,7 @@ router.get('/:id', (req, res) => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
-                req.session.loggedIn = true;
+                req.session.logged_in = true;
 
                 res.json(dbUserData);
             });
@@ -65,18 +66,17 @@ router.get('/:id', (req, res) => {
         );
     });
 
-
-    router.post('/login', (req, res) => {
-        User.findOne({
-            where: { username: req.body.username }
-        })
-        .then(dbUserData => {
+    router.post('/login', async (req, res) => {
+        try {
+            const dbUserData = await User.findOne({
+                where: { username: req.body.username }
+            });
             if (!dbUserData) {
                 res.status(400).json({ message: 'No user found with that username' });
                 return;
             }
             //verify user
-            const validPassword = dbUserData.checkPassword(req.body.password);
+            const validPassword = await dbUserData.checkPassword(req.body.password);
             if (!validPassword) {
                 res.status(400).json({ message: 'Incorrect password' });
                 return;
@@ -84,14 +84,42 @@ router.get('/:id', (req, res) => {
             req.session.save(() => {
                 //declare session variables
                 req.session.user_id = dbUserData.id;
-                req.session.username = dbUserData.username;
-                req.session.logged_in = true;
+                req.session.logged_in = true; 
                 res.json({ user: dbUserData, message: 'You are now logged in!' });
             }
             );
+        } catch (err) {
+            res.status(400).json(err); 
         }
-        );
     });
+
+
+    // router.post('/login', (req, res) => {
+    //     User.findOne({
+    //         where: { username: req.body.username }
+    //     })
+    //     .then(dbUserData => {
+    //         if (!dbUserData) {
+    //             res.status(400).json({ message: 'No user found with that username' });
+    //             return;
+    //         }
+    //         //verify user
+    //         const validPassword = dbUserData.checkPassword(req.body.password);
+    //         if (!validPassword) {
+    //             res.status(400).json({ message: 'Incorrect password' });
+    //             return;
+    //         }
+    //         req.session.save(() => {
+    //             //declare session variables
+    //             // req.session.user_id = dbUserData.id;
+    //             req.session.username = dbUserData.username;
+    //             req.session.logged_in = true;
+    //             res.json({ user: dbUserData, message: 'You are now logged in!' });
+    //         }
+    //         );
+    //     }
+    //     );
+    // });
 
     router.post('/logout', (req, res) => {
         if (req.session.logged_in) {

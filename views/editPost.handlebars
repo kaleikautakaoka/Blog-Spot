@@ -1,11 +1,11 @@
-<article>
+<div class="card">
     <h3>
         Make corrections to your post
     </h3>
-    <form action="/editPost" method="POST">
+    <form class="editPost" method="POST">
         <input type="hidden" name="id" value="{{id}}">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" value="{{title}}">
+        <input type="text" name="title" id="title" value="{{post.title}}">
         <label for="content">Content</label>
         <div><h3>Posted by you on {{date_created}}</h3></div>
         <textarea name="content" id="content" cols="30" rows="10">{{post.content.length}}</textarea>
@@ -13,7 +13,6 @@
             <label for "content">Content</label>
             <textarea name="content" id="content" cols="30" rows="10">{{post.content}}</textarea>
         </div>
-        <input type="submit" value="Edit Post">
-        <input type="button" class="delete-post-btn" value="Delete Post">
+        <button type="submit" class="btn btn-primary" value="Edit Post">
     </form> 
-<script src="/public/js/editPost.js"></script>        
+<script src="/js/editPost.js"></script>        

@@ -1,5 +1,5 @@
 
-// Danshboard handlebars to display the dashboard page on home instead
+
 
 {{#each users as |user| }}
 <div class="row align-center mb-5">
@@ -15,10 +15,6 @@
 {{#if posts.length}}
 
 <section>
-    <h1>Dashboard</h1>
-    <p>Logged in as {{user.username}}</p>
-    <p><a href="/logout">Logout</a></p>
-    <hr>
     <h2>Posts</h2>
     {{#each posts as |post|}}
     <h3>{{post.title}}</h3>
@@ -34,9 +30,11 @@
     <p>By {{user.username}}</p>
     <p>Created on {{comment.date_created}}</p>
     <hr>
+    {{/each}}
+    <hr>
 </section>
 
-    {{/else}}
+    {{else}}
     <section>
     <p>No posts yet</p>
     </section>

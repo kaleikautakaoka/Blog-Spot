@@ -1,4 +1,18 @@
-// view comments
+<h2>Blog Spot</h2>
+<secion id="new-post">
+    <h3>New Post</h3>
+    <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{content.length}}</p>
+        <p class="card-text">{{user.username}}</p>
+    </div>
+</secion>
+{{#each this}}
+    <form action="/post" method="POST">
+        <input type="text" name="title" placeholder="Title">
+        <textarea name="body" placeholder="Body"></textarea>
+        <input type="submit" value="Post">
+    </form>
 
 <div class="view">
     {{#each this}}

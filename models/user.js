@@ -40,7 +40,7 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [6]
+                len: [3]
             }
         }
     },
@@ -48,11 +48,15 @@ User.init(
         // add hooks
         hooks: {
             // set up beforeCreate lifecycle "hook" functionality
-            async beforeCreate(newUserData) {
-                // add await before bcrypt
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+             beforeCreate: async (newUserData) => {
+                    newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                    return newUserData;
             },
+            beforeUpdate: async (updatedUserData) => {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+
+            }
         },
         // pass in our imported sequelize connection (the direct connection to our database)
         sequelize,

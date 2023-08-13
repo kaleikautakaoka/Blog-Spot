@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Spot</title>
-    <link rel="stylesheet" href="/css/jass.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
     <link rel="stylesheet" href="/css/style.css">
-  {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 </head>
+
 <body>
     <div class="container">
         <div class="header">
-            <h1>Blog Spot</h1>
+            <h1>Blog Spot</h1> 
+             <div class="text-align"><a href="/login">Login or Signup</a></div>
+             <div><a href="/">Home</a></div>
         </div>
-         </div>
-        <div class="nav">
-            <!--Conditional Rendering for login and logout-->
+    </div>
+    <div class="nav">
+        <!--Conditional Rendering for login and logout-->
+        <ul>
             {{#if logged_in}}
-                <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
+            <li>
+                {{!-- <a href="/dashboard">Dashboard</a>
+                <a href="/homepage">Home</a> --}}
+                <button class="btn" id="logout">logout</button>
+            </li>
+            {{else}}
+
+           
+
             {{/if}}
-            <ul>
-                <li><a href="/">Home</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            {{{body}}}
+
+            
+        </ul>
+    </div>
+    <div class="content container container-fluid">
+        {{{body}}}
         <div class="footer">
             <p>&copy; 2023 - Blog Spot</p>
         </div>
     </div>
-        <!--script for users who are logged in point to auth.js--->
-        {{#if logged_in}}
-            <script src="/public/js/logout.js"></script>
-        {{/if}}
+    <!--script for users who are logged in point to auth.js--->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
+
 </html>

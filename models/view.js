@@ -15,12 +15,8 @@ View.init(
 
         },
         content: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
-            references: {
-                model: 'post',
-                key: 'id'
-            }
         },
         user_id: {
             type: DataTypes.INTEGER,

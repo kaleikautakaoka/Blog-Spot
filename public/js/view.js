@@ -1,33 +1,22 @@
 
-// async function to post comment
-
-async function viewFormHandler(event) {
+document.querySelector("newView").addEventListener("submit", event => {
     event.preventDefault();
+    const view = {
+        body: document.querySelector("#view").value,
+        post_id: document.querySelector("#hiddenView_id").value,
+    };
+fetch("/api/view", { 
+    method: "POST",
+    body: JSON.stringify(view), 
+    headers: { "Content-Type": "application/json" } }
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-
-    if (id) {
-        const response = await fetch('/api/posts/view', {
-            method: 'PUT',
-            body: JSON.stringify({
-                post_id: id
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-
-            }
-        });
-
-        if (response.ok) {
-            document.location.replace('/dashboard/');
-
-        } else {
-            alert(response.statusText);
-
-        }
-    }
+).then(res => {
+    if (res.ok) {
+location.reload();
+} else {
+alert("Failed to create view");
 }
+});
+});
 
 document.querySelector('.view-post-btn').addEventListener('click', viewFormHandler);

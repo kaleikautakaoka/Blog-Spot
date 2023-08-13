@@ -6,7 +6,7 @@ const { Post, User, View } = require('../models');
 //get route to join post and user tables
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'content', 'date_created'],
+    // attributes: ['id', 'title', 'content', 'date_created'],
     include: [
       {
         model: View,
@@ -91,6 +91,16 @@ Post.findOne({
 //     res.status(500).json(err);
 //   }
 // });
+
+router.get('/logout', (req, res) => {
+  if (req.session.loggout) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('logout');
+});
+
 
 //router get to login
 router.get('/login', (req, res) => {

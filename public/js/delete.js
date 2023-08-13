@@ -1,25 +1,21 @@
+const deleteNow = document.querySelector('#deleteBtn');
+const postId = document.querySelector('input[name="post-id"]').value;
 
-//async funcrion to delete post
+const deleteFormHandler = async () => { 
+    const response = await fetch(`/api/posts/${postId}`, {
 
-async function deleteFormHandler(event) {
-    event.preventDefault();
-
-    const id = window.location.toString().split("/")[
-        window.location.toString().split("/").length - 1
-    ];
-
-    const response = await fetch(`/api/posts/${id}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
+        method: "DELETE"
     });
 
     if (response.ok) {
-        document.location.replace("/dashboard");
+        document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
     }
-}
+};
 
-document.querySelector(".delete-post-btn").addEventListener("click", deleteFormHandler);
+if (deleteNow) {
+    deleteNow.addEventListener('click', deleteFormHandler);
+
+
+}

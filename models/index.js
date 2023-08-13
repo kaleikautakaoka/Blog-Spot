@@ -1,6 +1,6 @@
 const User = require('./User');
 const Post = require('./Post');
-const View = require('./View');
+const View = require('./view');
 
 
 //Adding associations for the user and post
