@@ -1,11 +1,13 @@
 const router = require('express').Router();
-const usePost = require('./post-route');
-const useUser = require('./user-route');
+const postRoutes = require('./postRoutes');
+const userRoutes = require('./userRoutes');
+const viewRoutes = require('./viewRoutes');
 
-// const useApi = require('./api');
 
-router.use('/post', usePost);
-router.use('/user', useUser);
+
+router.use('/posts', postRoutes);
+router.use('/users', userRoutes);
+router.use('/views', viewRoutes);
 
 
 

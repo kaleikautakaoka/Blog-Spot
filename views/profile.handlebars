@@ -1,0 +1,50 @@
+<div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+        <h3>{{title}}</h3>
+    </div> 
+</div>
+
+<form class="new-post-form">
+    <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" class="form-control" name="title" placeholder="Title">
+        </div>
+    </div>
+</form>
+
+<form class="edit-post-form">
+    <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" class="form-control" name="title" placeholder="Title">
+        </div>
+    </div> 
+</form>
+
+<form class="delete-post-form">
+    <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" class="form-control" name="title" placeholder="Title">
+        </div>
+    </div>
+
+{{#if content.length}}
+    {{#each content}}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2>{{title}}</h2>
+                <p>{{body}}</p>
+                <p>By {{user.username}}</p>
+                <p>Created on {{date_created}}</p>
+                <hr>
+            </div>
+        </div>
+    {{/each}}
+{{else}}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <p>No posts yet</p>
+        </div> 
+
+    </div>
+
+

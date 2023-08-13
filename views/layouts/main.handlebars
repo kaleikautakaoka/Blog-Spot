@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Spot</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+  {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 </head>
 <body>
     <div class="container">
@@ -17,9 +17,9 @@
         <div class="nav">
             <!--Conditional Rendering for login and logout-->
             {{#if logged_in}}
-                <a href="../dashboard.handlebars" id="logout">Logout</a>
-            {{else}}
-                <a href="/login">Login</a>
+                <nav>
+      <button class="btn" id="logout">logout</button>
+    </nav>
             {{/if}}
             <ul>
                 <li><a href="/">Home</a></li>
@@ -33,7 +33,7 @@
     </div>
         <!--script for users who are logged in point to auth.js--->
         {{#if logged_in}}
-            <script src="./logout.js"></script>
+            <script src="/public/js/logout.js"></script>
         {{/if}}
 </body>
 </html>
