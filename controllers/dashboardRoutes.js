@@ -31,7 +31,7 @@ router.get('/', withAuth, async (req, res) => {
         .then(dbPostData => {
                 
                 const posts = dbPostData.map(post => post.get({ plain: true }));
-                res.render('dashboard', { posts, loggedIn: true });
+                res.render('dashboard', { posts, logged_in: true });
             }
         )
         .catch(err => {
@@ -87,7 +87,9 @@ router.get('/edit/:id', withAuth, (req, res) => {
 );
 
 router.get('/new', (req, res) => {
-    res.render('new-post');
+    res.render('newPost', {
+        logged_in: req.session.logged_in
+    });
 
 }
 );

@@ -5,35 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Spot</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+
     <div class="container">
         <div class="header">
-            <h1>Blog Spot</h1> 
-             <div class="text-align"><a href="/login">Login or Signup</a></div>
-             <div><a href="/">Home</a></div>
+            <h1>Blog Spot</h1>
+
+            <div><a href="/">Home</a></div>
+
+            {{#if logged_in}}
+
+            {{!-- <a href="/dashboard">Dashboard</a>
+                <a href="/homepage">Home</a> --}}
+                 <div class="text-align"><a href="/dashboard/new">Create Post</a></div>
+            <button class="btn" id="logout">logout</button>
+
+            {{else}}
+
+            <div class="text-align"><a href="/login">Login or Signup</a></div>
+
+            {{/if}}
         </div>
     </div>
     <div class="nav">
         <!--Conditional Rendering for login and logout-->
         <ul>
-            {{#if logged_in}}
-            <li>
-                {{!-- <a href="/dashboard">Dashboard</a>
-                <a href="/homepage">Home</a> --}}
-                <button class="btn" id="logout">logout</button>
-            </li>
-            {{else}}
 
-           
 
-            {{/if}}
 
-            
         </ul>
     </div>
     <div class="content container container-fluid">

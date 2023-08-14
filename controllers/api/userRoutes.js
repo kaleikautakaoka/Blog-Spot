@@ -67,6 +67,7 @@ router.get('/:id', (req, res) => {
     });
 
     router.post('/login', async (req, res) => {
+        console.log(req.body);
         try {
             const dbUserData = await User.findOne({
                 where: { username: req.body.username }

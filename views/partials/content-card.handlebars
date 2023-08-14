@@ -2,11 +2,23 @@
 //section class for card
 sscript
 <section class="card">
-    <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text">{{content.length}}</p>
+
+      <div class="card-body createNew">
+        <h5 class="card-title, title">{{title}}</h5>
+        <p class="card-text, newPost">{{content.length}}</p>
         <p class="card-text">{{user.username}}</p>
     
     </div>
+    </section>
+    <button class="btn" id="createNew">Create New Post</button> 
+
+    <section class="card">
+    <div class="card-body">
+        <h5 class="card-title, title">{{title}}</h5>
+        <p class="card-text, content">{{content.length}}</p>
+        <p class="card-text">{{user.username}}</p>
+    
+    </div>
+    </section>
 
     <script src="/js/dashboard.js"></script> 
